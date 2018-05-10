@@ -20,6 +20,7 @@ import com.github.adminfaces.starter.model.Car;
 import com.github.adminfaces.starter.util.Utils;
 import java.util.List;
 import javax.inject.Inject;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -35,5 +36,9 @@ public class AdminBootApplication {
     public List<Car> getCars() {
         return utils.getCars();
     }
+
+	public static void main(String[] args) {
+		SpringApplication.run(AdminBootApplication.class, args);
+	}
 	
 }
