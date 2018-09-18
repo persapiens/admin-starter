@@ -15,7 +15,7 @@
             <f:event type="preRenderView" listener="#{carFormMB.init}"/>
         </f:metadata>
 
-        <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="car-form.jsf?id=#{carFormMB.id}"/>
+        <adm:breadcrumb title="#{empty carFormMB.id ? 'New Car' : 'Car '.concat(carFormMB.id)}" link="/car-form.jsf?id=#{carFormMB.id}"/>
         <h:form id="form" prependId="false">
             <p:focus rendered="#{empty carFormMB.id}"/>
 
@@ -93,9 +93,9 @@
             </div>
 
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
-                <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
                                  icon="fa fa-check"/>
-                <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
                                  icon="fa fa-close"/>
             </p:confirmDialog>
         </h:form>

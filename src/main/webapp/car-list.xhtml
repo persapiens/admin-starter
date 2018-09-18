@@ -4,15 +4,14 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:adm="http://github.com/adminfaces"
                 template="#{layoutMB.template}">
-
-    <ui:param name="title" value="Car listing"/> <!-- Automatic create breadCrumb and page title when param 'title' is provided. --> 
-
-    <ui:define name="head-end">
+    
+    <ui:define name="metadata">
+        <ui:param name="title" value="Car listing"/> <!-- Automatic create breadCrumb and page title when param 'title' is provided. --> 
+        
         <style type="text/css">
             .ui-datatable .ui-datatable-header {
                 text-align: right !important;
             }
-
         </style>
     </ui:define>
 
@@ -25,7 +24,7 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
-                        <p:commandButton action="car-form?faces-redirect=true" icon="fa fa-plus"
+                        <p:commandButton action="/car-form?faces-redirect=true" icon="fa fa-plus"
                                          value="New" styleClass="btn-primary"/>
                         <p:spacer width="5"/>
                         <p:commandButton value="Delete Selected" icon="fa fa-trash" styleClass="btn-danger"
@@ -41,7 +40,7 @@
                                          oncomplete="PF('selectedCars').show()" icon="fa fa-search"/>
                     </div>
 
-                    <p:splitButton value="New" action="car-form?faces-redirect=true"
+                    <p:splitButton value="New" action="/car-form?faces-redirect=true"
                                    icon="fa fa-plus"
                                    styleClass="hidden-md hidden-lg btn-primary">
                         <p:menuitem value="Delete Selected" action="#{carListMB.delete}"
@@ -81,7 +80,7 @@
                                              action="#{carListMB.findCarById(carListMB.id)}"
                                              process="@form"
                                              update="@form"
-                                             styleClass="btn-flat bg-black"
+                                             styleClass="btn-flat bg-black btn-states"
                                              partialSubmit="true"/>
                         </f:facet>
                         <p:column selectionMode="multiple" width="5%" styleClass="align-center"/>
@@ -96,7 +95,7 @@
                                             oncomplete="PF('carsTable').filter()"/>
                                 </p:autoComplete>
                             </f:facet>
-                            <p:link value="#{c.model}" outcome="car-form.xhtml" >
+                            <p:link value="#{c.model}" outcome="/car-form" >
                                 <f:param name="id" value="#{c.id}"/>
                             </p:link>
 
@@ -122,9 +121,9 @@
                 </div>
             </div>
             <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="box-danger box-solid">
-                <p:commandButton value="Yes" type="button" styleClass="btn-primary ui-confirmdialog-yes"
+                <p:commandButton value="Yes" type="button" styleClass="btn-material btn-primary ui-confirmdialog-yes"
                                  icon="fa fa-check"/>
-                <p:commandButton value="No" type="button" styleClass="btn-danger ui-confirmdialog-no"
+                <p:commandButton value="No" type="button" styleClass="btn-material btn-danger ui-confirmdialog-no"
                                  icon="fa fa-close"/>
             </p:confirmDialog>
         </h:form>
